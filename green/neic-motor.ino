@@ -1,3 +1,19 @@
+// Silver medal winner in the NEIC Allhands 2016 competition.
+
+// 100% programmed by Ulf Tigerstedt <ulf.tigerstedt@csc.fi>
+// Other participants: 
+// Jaakko Leinonen
+// Diba
+// Dmytro Karpenko
+// Pål Pettersen
+// Dejan (but he was mostly not present)
+// Pontus 
+
+
+// Idea is to traverse the track by moving counterclockwise, find out when the robot is approaching a wall and then turn 90 degrees left by calling the turnright() function
+
+// Note: Needs a hit on the reset button after poweron. The ultrasonic sensor won't work properly without the reset.
+
 #include <SoftwareSerial.h>
 
 #include <Wire.h>
