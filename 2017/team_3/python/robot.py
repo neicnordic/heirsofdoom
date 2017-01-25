@@ -132,5 +132,7 @@ def run_test_routine(controller):
         print(controller.robot.get_mag())
 
 if __name__=='__main__':
-    run_test_routine()
+    robot = Robot()
+    controller = Controller(robot)
+    run_test_routine(controller)
     
