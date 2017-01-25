@@ -103,8 +103,31 @@ class Controller():
         drive(abs(vL),abs(vR))
         delay(1000)
         drive(0,0)
+
+    def drive_to_wall(self):
+        distance = self.sense_distance()
+        if distance < 0.5:
+            return 0
+        self.drive(0.1)
+        while True:
+            distance = self.sense_distance()
+            if distance < 0.5:
+                self.stop
+                return 1
+            time.sleep(50)
+
+    def find_origin(self):
+        has_moved = 0
+        while True:
+            self.turn(1, 180)
+            has_moved += self.drive_to_wall()
+            self.turn(1,270)
+            has_moved += self.drive_to_wall()
+            if has_moved == 0:
+                break
+            has_moved = 0
         
-        
+
         
 if __name__=='__main__':
     robot = Robot()
