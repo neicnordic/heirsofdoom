@@ -31,7 +31,7 @@ class Robot(serial.Serial):
         t = int(1000 * t)
         buf = bytearray(3)
         while t > 0xffff:
-            self.delay(0xffff)
+            #self.delay(0xffff)
             t -= 0xffff
         buf[0] = OP_DELAY
         buf[1] = t >> 8
