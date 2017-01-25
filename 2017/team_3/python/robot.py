@@ -84,13 +84,6 @@ Make a function which can locate two boxes and park between them.
 class Controller():
     def __init__(self, robot):
         self.robot=robot
-        pass
-
-
-    # radovan: what is this for?
-    def run(self):
-        pass
-
 
     def rotate(self,volt):
         
