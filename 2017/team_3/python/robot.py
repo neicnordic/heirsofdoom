@@ -86,6 +86,8 @@ class Controller():
         self.robot=robot
         pass
 
+
+    # radovan: what is this for?
     def run(self):
         pass
 
