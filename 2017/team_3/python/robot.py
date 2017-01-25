@@ -1,5 +1,6 @@
 import math, serial, time
 import numpy as np
+import argparse
 
 OP_SYNC = 0x10
 OP_DELAY = 0x20
@@ -69,6 +70,30 @@ class Robot(serial.Serial):
         if gyro:  self._read_int16_triple(self.gyro)
         if mag:   self._read_int16_triple(self.mag)
 
+    def get_accel(self, update=True):
+        if update:
+            self.sense(accel=True)
+        return self.accel
+
+    def get_gyro(self, update=True):
+        if update:
+            self.sense(gyro=True)
+        return self.gyro
+
+    def get_mag(self, update=True):
+        if update:
+            self.sense(mag=True)
+        return self.mag
+
+    def get_sonar(self, update=True):
+        if update:
+            self.sense(sonar=True)
+        return self.sonar
+
+    def orientation(self):
+        """ return orientation of the robot as angles from north. not implemented."""
+        pass
+
 """
 Make a function to turn the robot to a given absolute angle.
 Make a function to drive in a straight line. Do you expect the robot to go straight be giving the same power to the two motors?
@@ -87,26 +112,25 @@ class Controller():
     def run(self):
         pass
 
-    def rotate(self,volt):
-        
+    def rotate(self, volt):
         vL=0
         vR=0
-        
         if(volt<0):
             vL=volt
         else:
             vR=volt
+        self.robot.drive(abs(vL), abs(vR))
+        self.robot.delay(1000)
+        self.robot.drive(0,0)
 
-        drive(abs(vL),abs(vR))
-        delay(1000)
-        drive(0,0)
-        
-        
-        
+    def rotate_one_round(self):
+        beginning = self.robot.mag
+
+def run_test_routine(controller):
+    for i in range(100):
+        controller.rotate(50)
+        print(controller.robot.get_mag())
+
 if __name__=='__main__':
-    robot = Robot()
-    controller = Controller(robot)
-
-    volt = 10
-    controller.rotate(volt)
+    run_test_routine()
     
