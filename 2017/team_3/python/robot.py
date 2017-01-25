@@ -73,7 +73,8 @@ class Robot(serial.Serial):
     def turn(self, phi_stop_radian, direction):
         buf = bytearray(3)
         buf[0] = OP_TURN
-        INT16_OF_ANGLE = 32768. / math.pi
+        PI = math.radians(math.pi)
+        INT16_OF_ANGLE = 32768. / PI
         angle =  phi_stop_radian * INT16_OF_ANGLE
         buf[1] = (angle >> 8) & 0xFF
         buf[2] = angle & 0xFF
