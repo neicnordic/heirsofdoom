@@ -68,3 +68,26 @@ class Robot(serial.Serial):
         if accel: self._read_int16_triple(self.accel)
         if gyro:  self._read_int16_triple(self.gyro)
         if mag:   self._read_int16_triple(self.mag)
+
+
+"""
+Make a function to turn the robot to a given absolute angle.
+Make a function to drive in a straight line. Do you expect the robot to go straight be giving the same power to the two motors?
+Drive the function in an equilateral triangle, attempting to get back to the starting point.
+Make a function which learns its position by measuring the distances to two walls, possibly driving up close enough first.
+Make a function which given an initial unknown location can drive to a provided location.
+Make a function which can locate a box.
+Make a function which can locate two boxes and park between them.
+"""
+
+class Controller():
+    def __init__(self, robot):
+        self.robot=robot
+        pass
+
+    def run(self):
+        pass
+
+if __name__=='__main__':
+    robot = Robot()
+    controller = Controller(robot)
