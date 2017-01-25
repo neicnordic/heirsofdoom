@@ -53,3 +53,5 @@ but do not hesitate to ask us:
 <img src="/assets/img/robots/robot38.jpg" style="width: 500px;"/>
 <img src="/assets/img/robots/robot41.jpg" style="width: 500px;"/>
 <img src="/assets/img/robots/robot42.jpg" style="width: 500px;"/>
+
+### Don't forget the micro-SD card
