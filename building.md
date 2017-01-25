@@ -38,7 +38,8 @@ We want the platform high up to leave room for the Raspberry Pi.
 
 ### Connect the Raspberry Pi 3
 
-Now connect the Raspberry Pi:
+Now connect the Raspberry Pi with 2 screws on the top - note the distance rings
+in between the Raspberry Pi plate and the blue structure:
 
 <img src="/assets/img/robots/robot31.jpg" style="width: 500px;"/>
 <img src="/assets/img/robots/robot43.jpg" style="width: 500px;"/>
