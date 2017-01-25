@@ -69,7 +69,6 @@ class Robot(serial.Serial):
         if gyro:  self._read_int16_triple(self.gyro)
         if mag:   self._read_int16_triple(self.mag)
 
-
 """
 Make a function to turn the robot to a given absolute angle.
 Make a function to drive in a straight line. Do you expect the robot to go straight be giving the same power to the two motors?
@@ -88,6 +87,26 @@ class Controller():
     def run(self):
         pass
 
+    def rotate(self,volt):
+        
+        vL=0
+        vR=0
+        
+        if(volt<0):
+            vL=volt
+        else:
+            vR=volt
+
+        drive(abs(vL),abs(vR))
+        delay(1000)
+        drive(0,0)
+        
+        
+        
 if __name__=='__main__':
     robot = Robot()
     controller = Controller(robot)
+
+    volt = 10
+    controller.rotate(volt)
+    
