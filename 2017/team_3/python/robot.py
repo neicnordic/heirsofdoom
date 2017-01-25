@@ -11,6 +11,7 @@ OP_SENSE_RAW_SONAR = 0x01
 OP_SENSE_RAW_ACCEL = 0x02
 OP_SENSE_RAW_GYRO = 0x04
 OP_SENSE_RAW_MAG = 0x08
+OP_TURN = 0x70
 
 SONAR_OFFSET = 30
 
@@ -69,6 +70,14 @@ class Robot(serial.Serial):
         if gyro:  self._read_int16_triple(self.gyro)
         if mag:   self._read_int16_triple(self.mag)
 
+    def turn(self, phi_stop_radian, direction):
+        buf = bytearray(3)
+        buf[0] = OP_TURN
+        INT16_OF_ANGLE = 32768. / math.pi
+        angle =  phi_stop_radian * INT16_OF_ANGLE
+        buf[1] = (angle >> 8) & 0xFF
+        buf[2] = angle & 0xFF
+        self.write(buf)
 
 
 """
