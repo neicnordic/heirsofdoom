@@ -47,12 +47,12 @@ class Robot(serial.Serial):
 
     def _read_uint16(self):
         r = self.read(2)
-        return (r[0] << 8) | r[1]
+        return (ord(r[0]) << 8) | ord(r[1])
 
     def _read_int16_triple(self, buf):
         r = self.read(6)
         for i in range(3):
-            x = (r[2*i] << 8) | r[2*i + 1]
+            x = (ord(r[2*i]) << 8) | ord(r[2*i + 1])
             if x < 0x8000: buf[i] = x
             else:          buf[i] = x - 0x10000
 
