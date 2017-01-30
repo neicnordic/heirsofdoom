@@ -4,6 +4,8 @@
 
 ## Preparations
 
+* Log in to the robot using [SSH](#ssh-access).
+* Clone NeIC robo stuff `git clone https://gi
 * [Build the bot](building.md)
 * [Prep the card](sdcard-prep.md)
 
@@ -14,9 +16,7 @@
 * Clone makeblock libraries in /opt `git clone https://github.com/Makeblock-official/Makeblock-Libraries`
 
 ## Start hacking
-
-* Log in to the robot using [SSH](#SSH access).
-* Clone NeIC robo stuff `git clone https://github.com/neicnordic/heirsofdoom`
+thub.com/neicnordic/heirsofdoom`
 * Set up the arduino `cd heirsofdoom/2017/arduino; make; make upload; cd -`.
 * Go play with python `cd heirsofdoom/2017/python; python`.
 
